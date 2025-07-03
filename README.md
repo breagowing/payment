@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 婚礼成本核对系统
 
-## Getting Started
+一个基于 Next.js 构建的现代化婚礼成本管理系统，支持完整的三阶段成本控制流程。
 
-First, run the development server:
+## ✨ 功能特点
 
+### 📊 三阶段成本管理
+- **预算计划**：初期成本预算规划，为后续流程提供基准
+- **报单管理**：供应商报价管理，与预算进行详细对比分析
+- **核算对账**：婚礼执行后的实际成本核算，三方数据对比
+
+### 🎯 核心功能
+- **多项目类型支持**：灯光舞美、设计物料、婚礼花艺、主题定制、基础开销、费用项、货车人工等
+- **智能差异分析**：自动计算各阶段差异，超过阈值自动预警
+- **明细级对比**：不仅对比总金额，更提供逐项明细对比分析
+- **状态跟踪**：实时显示各项目的完成状态和异常提醒
+- **责任追溯**：清晰追踪预算、报单、核算各环节的责任
+
+### 💡 业务价值
+- **成本透明**：全流程成本可视化管理
+- **风险控制**：及早发现和预警成本偏差
+- **效率提升**：标准化的成本管理流程
+- **决策支持**：基于数据的成本决策
+
+## 🛠️ 技术栈
+
+- **前端框架**：Next.js 15
+- **开发语言**：TypeScript
+- **样式方案**：Tailwind CSS
+- **UI组件**：shadcn/ui
+- **构建工具**：Turbopack
+- **包管理**：npm/pnpm
+
+## 🚀 快速开始
+
+### 环境要求
+- Node.js 18+ 
+- npm 或 pnpm
+
+### 安装依赖
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+# 或
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 启动开发服务器
+```bash
+npm run dev
+# 或
+pnpm dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+打开 [http://localhost:3000](http://localhost:3000) 查看应用。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 构建生产版本
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## 📱 界面预览
 
-To learn more about Next.js, take a look at the following resources:
+### 预算计划
+- 简洁的预算总览表格
+- 按项目类别分类展示
+- 预算总计统计
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 报单管理  
+- 突出报单信息的主要区域
+- 右侧预算对比参考区域
+- 逐项差异分析
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 核算对账
+- 可编辑的核算表格
+- 三方数据对比（预算-报单-核算）
+- 智能状态提醒和异常标识
 
-## Deploy on Vercel
+## 📂 项目结构
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+payment/
+├── app/                          # Next.js App Router
+│   ├── cost-reconciliation/      # 成本核对页面
+│   ├── income-settlement/        # 收入结算页面
+│   └── globals.css              # 全局样式
+├── components/                   # 组件库
+│   ├── ui/                      # 基础UI组件
+│   └── income-settlement-drawer.tsx
+├── lib/                         # 工具函数
+└── public/                      # 静态资源
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎯 核心业务流程
+
+1. **预算阶段**：制定初期成本预算，确定各项目预算金额
+2. **报单阶段**：收集供应商报价，与预算进行对比分析
+3. **核算阶段**：婚礼执行后录入实际成本，进行三方对比
+
+### 差异处理规则
+- 报单与预算差异 > ¥100：标记为"差异较大"
+- 核算与报单差异 > ¥100：标记为"需要追查"
+- 自动生成差异报告和责任追踪
+
+## 🔧 开发指南
+
+### 添加新的成本类别
+1. 在 `reconciliationData` 中添加新的数据结构
+2. 为新类别选择合适的图标和颜色主题
+3. 更新相关的TypeScript类型定义
+
+### 自定义样式
+- 主要使用 Tailwind CSS 进行样式控制
+- UI组件基于 shadcn/ui 构建
+- 支持暗色模式
+
+## 📈 功能路线图
+
+- [ ] 用户权限管理
+- [ ] 数据导出功能
+- [ ] 移动端适配优化
+- [ ] 实时协作功能
+- [ ] 更多图表和报表
+
+## 🤝 贡献指南
+
+欢迎提交 Issue 和 Pull Request 来改进项目！
+
+## 📄 许可证
+
+MIT License
+
+---
+
+**开发者**: breagowing@gmail.com  
+**项目地址**: [https://github.com/breagowing/payment](https://github.com/breagowing/payment)
